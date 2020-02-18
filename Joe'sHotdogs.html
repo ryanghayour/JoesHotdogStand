@@ -1,0 +1,59 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Joe's Hotdog Stand</title>
+	<style type="text/css">
+		form{
+			background-image: url('wood.jpg');
+		}
+		div {
+			background-image: url('wood.jpg');
+			color: white;
+			font-size: 35px;
+			font-family: cambria;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<br><br><br>
+		<b><font size=40px>Welcome to Joe's Hotdog Stand!</font></b>
+		<br><br><br><b>Your Order</b><br><br>
+	<script language="javascript">
+
+		num_hotdogs = prompt("How many hotdogs?", "1");
+		num_fries = prompt("How many fries?", "1");
+		num_sodas = prompt("How many sodas?", "1");
+
+
+		discount = false;
+		price_hotdogs = Math.round(num_hotdogs*3.25*100)/100;
+		price_fries = Math.round(num_fries*2*100)/100;
+		price_sodas = Math.round(num_sodas*1.5*100)/100;
+		sum = price_sodas + price_fries + price_hotdogs;
+		if (sum >= 20){
+			discount = true;
+		}
+
+		document.write(num_hotdogs, " Hotdogs at $3.25: $", 
+		price_hotdogs, "<br><br>", num_fries, " Fries at $2.00: $",
+		price_fries, "<br><br>", num_sodas, " Sodas at $1.50: $",
+		price_sodas, "<br><br>");
+
+		if (discount){
+			sum = Math.round(sum*90)/100;
+			document.write("<br>You qualified for our 10% discount!",
+				"<br><br> Subtotal: $", sum, "<br><br>");
+
+		}
+
+		tax = Math.round(sum*.0625*100)/100;
+		document.write("Tax: + $", tax, "<br><br>");
+		total = Math.round((sum + tax)*100)/100;
+		document.write("Total: $", total, "<br><br><br><br><br><br>");
+	</script>
+	</div>
+</body>
+</html>
